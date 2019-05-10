@@ -1,4 +1,4 @@
-package com.bookAnyWhere.com.bookAnyWhere;
+package com.bookAnyWhere;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

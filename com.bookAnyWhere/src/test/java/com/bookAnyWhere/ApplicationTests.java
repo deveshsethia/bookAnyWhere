@@ -1,4 +1,4 @@
-package com.bookAnyWhere.com.bookAnyWhere;
+package com.bookAnyWhere;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
