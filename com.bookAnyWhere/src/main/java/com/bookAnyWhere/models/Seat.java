@@ -2,9 +2,9 @@ package com.bookAnyWhere.models;
 
 public class Seat {
 
- int seatNumber ;
+ String seatNumber ;
 
- public Seat(int seatNumber){
+ public Seat(String seatNumber){
      this.seatNumber= seatNumber;
  }
 }
