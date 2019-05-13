@@ -18,4 +18,10 @@ public class CoachTest {
         Seat testSideUpper = coach.getSeats().get("SIDEUPPER").peek();
         assertEquals("SIDEUPPER8", testSideUpper.seatNumber);
     }
+    @Test
+    public void getAvailableSeats(){
+
+       int count= coach.getAvalaibleSeats();
+        assertEquals(40,count);
+    }
 }

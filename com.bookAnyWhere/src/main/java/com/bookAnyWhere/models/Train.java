@@ -42,6 +42,14 @@ public class Train {
         return trainCoaches;
     }
 
+    public int getAvailabilityIn(String type){
+        int totalCoachSeats=0;
+        for(Coach coachls: trainCoaches.get(type)){
+            totalCoachSeats+=coachls.getAvalaibleSeats();
+        }
+        return totalCoachSeats;
+    }
+
 }
 
 

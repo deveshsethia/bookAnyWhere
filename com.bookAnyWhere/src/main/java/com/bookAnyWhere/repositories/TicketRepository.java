@@ -19,7 +19,7 @@ public class TicketRepository {
         return train;
     }
 
-    private TicketRepository() {
+    public TicketRepository() {
 
         this.train = new Train();
     }

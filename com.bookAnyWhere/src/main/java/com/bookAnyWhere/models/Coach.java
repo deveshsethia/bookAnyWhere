@@ -46,4 +46,16 @@ public abstract class Coach {
     public Map<String, Queue<Seat>> getSeats() {
         return seats;
     }
+
+    public int getAvalaibleSeats(){
+        int totalSeats=1;
+        for(Map.Entry<String,Queue<Seat>> seats1: seats.entrySet()){
+            totalSeats+=seats1.getValue().size();
+        }
+        return totalSeats;
+    }
+    private int availableSeatInCoach(String type){
+
+        return seats.get(type).size();
+    }
 }

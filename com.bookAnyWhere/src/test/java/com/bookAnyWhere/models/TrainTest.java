@@ -15,7 +15,8 @@ public class TrainTest {
        String testCoachname= train.getTrainCoaches().get("AC")[0].getCoachNumber();
        assertEquals("AC0",testCoachname);
     }
-
-
-
+    @Test
+    public  void getAvailabilityInAcCoach(){
+    int count = train.getAvailabilityIn("AC");
+    assertEquals(400,count);}
 }
