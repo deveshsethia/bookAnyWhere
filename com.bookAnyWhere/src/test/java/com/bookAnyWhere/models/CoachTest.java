@@ -12,6 +12,10 @@ public class CoachTest {
     public void getSeats() {
 
         Seat testSeatNumber= coach.getSeats().get("UPPER").peek();
-        assertEquals("UPPER1", testSeatNumber);
+        assertEquals("UPPER1", testSeatNumber.seatNumber);
+        Seat testSideLower = coach.getSeats().get("SIDELOWER").peek();
+        assertEquals("SIDELOWER4", testSideLower.seatNumber);
+        Seat testSideUpper = coach.getSeats().get("SIDEUPPER").peek();
+        assertEquals("SIDEUPPER8", testSideUpper.seatNumber);
     }
 }
