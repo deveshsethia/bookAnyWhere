@@ -19,4 +19,8 @@ public class TrainTest {
     public  void getAvailabilityInAcCoach(){
     int count = train.getAvailabilityIn("AC");
     assertEquals(400,count);}
+    @Test
+    public  void getAvailabilityInSLCoach(){
+        int count = train.getAvailabilityIn("SL");
+        assertEquals(400,count);}
 }
