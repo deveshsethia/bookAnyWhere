@@ -5,14 +5,18 @@ public class TicketRequest {
     String trainName;
     String coachType;
     Passenger passenger;
-    String SeatPreference;
+    String seatPreference;
 
 
-    public TicketRequest(String trainName, String coachType, Passenger passenger, String seatPreference) {
+
+    public TicketRequest(String trainName, String coachType,Passenger passenger, String seatPreference) {
         this.trainName = trainName;
         this.coachType = coachType;
         this.passenger = passenger;
-        SeatPreference = seatPreference;
+        this.seatPreference = seatPreference;
+    }
+
+    public TicketRequest() {
     }
 
     public String getTrainName() {
@@ -40,10 +44,10 @@ public class TicketRequest {
     }
 
     public String getSeatPreference() {
-        return SeatPreference;
+        return seatPreference;
     }
 
     public void setSeatPreference(String seatPreference) {
-        SeatPreference = seatPreference;
+        this.seatPreference = seatPreference;
     }
 }

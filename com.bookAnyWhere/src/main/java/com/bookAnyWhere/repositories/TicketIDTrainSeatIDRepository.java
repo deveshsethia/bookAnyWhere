@@ -1,8 +1,10 @@
 package com.bookAnyWhere.repositories;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class TicketIDTrainSeatIDRepository {
 
     Map<String, String> tkIdSeatIdMap = new HashMap<>();

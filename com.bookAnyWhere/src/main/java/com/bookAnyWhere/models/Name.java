@@ -11,6 +11,9 @@ public class Name {
     }
 
 
+    public Name() {
+    }
+
     public String getFirstName() {
         return firstName;
     }

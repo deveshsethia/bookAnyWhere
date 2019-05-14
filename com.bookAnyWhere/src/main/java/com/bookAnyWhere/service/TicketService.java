@@ -1,9 +1,11 @@
 package com.bookAnyWhere.service;
 
 import com.bookAnyWhere.models.Passenger;
+import com.bookAnyWhere.models.Seat;
 import com.bookAnyWhere.models.Ticket;
 import com.bookAnyWhere.models.TicketRequest;
 import com.bookAnyWhere.repositories.TicketRepository;
+import com.bookAnyWhere.repositories.TrainTimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketService{
 
+    @Autowired
+    TrainTimeRepository trainTimeRepository;
 
     @Autowired
     TicketRepository ticketRepository;
@@ -22,11 +26,37 @@ public class TicketService{
     }
 
     public Ticket getTicket(TicketRequest ticketRequest) {
-        Passenger passenger = new Passenger(ticketRequest.getPassenger().getName().getFirstName(),
-                ticketRequest.getPassenger().getName().getLastName(),
+        Passenger passenger = new Passenger(ticketRequest.getPassenger().getName(),
                 ticketRequest.getPassenger().getAge(),
                 ticketRequest.getPassenger().getGender());
-        return new Ticket("AC1UPPER",ticketRequest.getTrainName(),
-                passenger,"1","AC1","9pm");
+            String seatNumber= getCoachNameWithSeat(ticketRequest.getCoachType(),ticketRequest.getSeatPreference());
+            String trainTiming= trainTimeRepository.getTrainTiming(ticketRequest.getTrainName());
+        Ticket ticket= new Ticket("AC1UPPER",
+                ticketRequest.getTrainName(),
+                passenger,
+                seatNumber,
+               trainTiming);
+
+        return ticket;
+    }
+    private String getCoachNameWithSeat(String type , String seatPreference){
+        if(ticketRepository.getTrain().getAvailabilityIn("AC")!=0){
+            int checkoutCoaches=0;
+            Seat passengerseat= null;
+            while(checkoutCoaches<ticketRepository.getTrain().getTrainCoaches().get(type).length) {
+                if (!ticketRepository.getTrain().getTrainCoaches().get(type)[checkoutCoaches].getSeats().get(seatPreference).isEmpty()) {
+                    passengerseat = ticketRepository.
+                            getTrain().
+                            getTrainCoaches().
+                            get(type)[checkoutCoaches]
+                            .getSeats().
+                                    get(seatPreference).peek();
+                    break;
+                }
+                checkoutCoaches++;
+            }
+                return type+checkoutCoaches +"-"+ passengerseat.getSeatNumber();
+        }
+        return  "NO seat";
     }
 }

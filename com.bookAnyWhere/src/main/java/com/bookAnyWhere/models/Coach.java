@@ -4,39 +4,47 @@ import java.util.*;
 
 public abstract class Coach {
 
+    private static final String UPP ="UPPER";
+    private static final String MDL ="MIDDLE";
+    private static final String LRE ="LOWER";
+    private static final String SLE="SIDELOWER";
+    private static final String SUP ="SIDEUPPER";
+    private static final int TOTALSEATS =40;//must be divisible by 8 .
+
+
     private String  coachNumber;
     private Map<String , Queue<Seat>> seats= new HashMap<>();
     public Coach(String coachNumber){
         this.coachNumber= coachNumber;
-        seats.put("UPPER", new LinkedList<>());
-        seats.put("MIDDLE", new LinkedList<>());
-        seats.put("LOWER", new LinkedList<>());
-        seats.put("SIDELOWER", new LinkedList<>());
-        seats.put("SIDEUPPER", new LinkedList<>());
+        seats.put(UPP, new LinkedList<>());
+        seats.put(MDL, new LinkedList<>());
+        seats.put(LRE, new LinkedList<>());
+        seats.put(SLE, new LinkedList<>());
+        seats.put(SUP, new LinkedList<>());
         setSeatNumberInTheCoach(seats);
     }
 
     private void setSeatNumberInTheCoach(Map<String, Queue<Seat>> seats) {
-        int i = 1;
-        while (i < 40) {
-            switch (i % 4) {
+        int currentSeat = 1;
+        while (currentSeat < TOTALSEATS) {
+            switch (currentSeat % 4) {
                 case 1:
-                    seats.get("UPPER").add(new Seat("UPPER" + i));
+                    seats.get(UPP).add(new Seat(currentSeat+ UPP));
                     break;
                 case 2:
-                    seats.get("MIDDLE").add(new Seat("MIDDLE" + i));
+                    seats.get(MDL).add(new Seat( currentSeat+ MDL));
                     break;
                 case 3:
-                    seats.get("LOWER").add(new Seat("LOWER" + i));
+                    seats.get(LRE).add(new Seat(currentSeat+ LRE));
                     break;
                 default:
-                    if (i % 8 == 0) {
-                        seats.get("SIDEUPPER").add(new Seat("SIDEUPPER" + i));
+                    if (currentSeat % 8 == 0) {
+                        seats.get(SUP).add(new Seat(currentSeat+ SUP));
                     } else {
-                        seats.get("SIDELOWER").add(new Seat("SIDELOWER" + i));
+                        seats.get(SLE).add(new Seat(currentSeat+SLE));
                     }
             }
-            i++;
+            currentSeat++;
         }
     }
     public String getCoachNumber() {

@@ -5,36 +5,41 @@ import java.util.*;
 
 public class Train {
 
+    private static final int NUMBEROFCOACHES = 10;
     private Map<String, Coach[]> trainCoaches = new HashMap<String, Coach[]>();
+    public static final String AC="AC";
+    public static final String GE="GE";
+    public static final String SL="SL";
+
 
     public Train() {
-        trainCoaches.put("AC", new AcCoach[10]);
-        getCoach(trainCoaches.get("AC"), "AC");
-        trainCoaches.put("GE", new GeneralCoach[10]);
-        getCoach(trainCoaches.get("GE"), "GE");
-        trainCoaches.put("SL", new SleeperCoach[10]);
-        getCoach(trainCoaches.get("SL"), "SL");
+        trainCoaches.put(AC, new AcCoach[NUMBEROFCOACHES]);
+        getCoach(trainCoaches.get(AC), AC);
+        trainCoaches.put(GE, new GeneralCoach[NUMBEROFCOACHES]);
+        getCoach(trainCoaches.get(GE),GE);
+        trainCoaches.put(SL, new SleeperCoach[NUMBEROFCOACHES]);
+        getCoach(trainCoaches.get(SL), SL);
 
     }
 
     private void getCoach(Coach coaches[], String type) {
-        int i = 0;
-        while (i < 10) {
+        int currentCoach = 0;
+        while (currentCoach < NUMBEROFCOACHES) {
             switch(type){
-                case "AC" :
-                    coaches[i] = new AcCoach(type + i, type);
+                case AC :
+                    coaches[currentCoach] = new AcCoach(type + currentCoach, type);
                     break;
-                case "GE" :
-                    coaches[i] = new GeneralCoach(type + i, type);
+                case GE :
+                    coaches[currentCoach] = new GeneralCoach(type + currentCoach, type);
                     break;
-                case "SL" :
-                    coaches[i] = new SleeperCoach(type + i, type);
+                case SL :
+                    coaches[currentCoach] = new SleeperCoach(type + currentCoach, type);
                     break;
                 default:
                     new Exception("Entry is not valid");
             }
 
-            i++;
+            currentCoach++;
         }
     }
 

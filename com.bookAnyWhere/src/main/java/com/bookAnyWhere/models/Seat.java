@@ -7,4 +7,15 @@ public class Seat {
  public Seat(String seatNumber){
      this.seatNumber= seatNumber;
  }
+
+    public Seat() {
+    }
+
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
 }

@@ -2,22 +2,25 @@ package com.bookAnyWhere.models;
 
 public class Passenger {
 
-    private Name name;
+    private String name;
     private String age;
     private String gender;
 
-    public Passenger(String firstName, String LastName ,String age , String gender ){
-        this.name= new Name(firstName,LastName);
+    public Passenger(String name ,String age , String gender ){
+        this.name= name;
         this.age= age;
         this.gender= gender;
     }
 
+    public Passenger() {
+    }
 
-    public Name getName() {
+
+    public String getName() {
         return name;
     }
 
-    public void setName(Name name) {
+    public void setName(String name) {
         this.name = name;
     }
 
