@@ -12,8 +12,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Autowired
-	TicketServiceController ticketServiceController;
-
-
 }

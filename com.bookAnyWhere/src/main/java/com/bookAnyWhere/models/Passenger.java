@@ -1,13 +1,36 @@
 package com.bookAnyWhere.models;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Transactional
 public class Passenger {
+
+    @Id
+    @GeneratedValue
+    private int passengerID;
 
     private String name;
     private String age;
     private String gender;
-    private String typeOfPassenger;
+    private String typeOfPassenger="normal";
 
-    public Passenger(String name ,String age , String gender ){
+    public Passenger() {
+    }
+
+    public int getPassengerID() {
+        return passengerID;
+    }
+
+    public String getTypeOfPassenger() {
+        return typeOfPassenger;
+    }
+
+    public Passenger(String name , String age , String gender ){
         this.name= name;
         this.age= age;
         this.gender= gender;
@@ -15,8 +38,7 @@ public class Passenger {
 
     //public abstract int passengerDiscount();
 
-    public Passenger() {
-    }
+
 
     private void getPassengerType() {
 
