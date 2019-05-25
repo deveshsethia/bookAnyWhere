@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.Map;
 @Repository
-public class TicketIDPassengerIDRepository {
+public class TicketIDPassengerIDRepository{
 
     Map<String, String> tkIdPassIdMap= new HashMap<>();
 

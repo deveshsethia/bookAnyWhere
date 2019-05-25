@@ -5,6 +5,7 @@ public class Passenger {
     private String name;
     private String age;
     private String gender;
+    private String typeOfPassenger;
 
     public Passenger(String name ,String age , String gender ){
         this.name= name;
@@ -12,10 +13,14 @@ public class Passenger {
         this.gender= gender;
     }
 
+    //public abstract int passengerDiscount();
+
     public Passenger() {
     }
 
+    private void getPassengerType() {
 
+    }
     public String getName() {
         return name;
     }

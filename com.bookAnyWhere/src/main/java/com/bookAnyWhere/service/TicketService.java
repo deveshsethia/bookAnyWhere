@@ -1,9 +1,6 @@
 package com.bookAnyWhere.service;
 
-import com.bookAnyWhere.models.Passenger;
-import com.bookAnyWhere.models.Seat;
-import com.bookAnyWhere.models.Ticket;
-import com.bookAnyWhere.models.TicketRequest;
+import com.bookAnyWhere.models.*;
 import com.bookAnyWhere.repositories.TicketRepository;
 import com.bookAnyWhere.repositories.TrainTimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +47,7 @@ public class TicketService{
                             getTrainCoaches().
                             get(type)[checkoutCoaches]
                             .getSeats().
-                                    get(seatPreference).peek();
+                                    get(seatPreference).poll();
                     break;
                 }
                 checkoutCoaches++;
