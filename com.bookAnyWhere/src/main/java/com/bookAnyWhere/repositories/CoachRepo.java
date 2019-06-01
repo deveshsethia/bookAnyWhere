@@ -1,6 +1,7 @@
 package com.bookAnyWhere.repositories;
 
-import com.bookAnyWhere.models.Passenger;
+import com.bookAnyWhere.models.Coach;
+import com.bookAnyWhere.models.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,19 +10,18 @@ import javax.persistence.EntityManager;
 
 @Repository
 @Transactional
-public class PassengerRepo {
-
+public class CoachRepo {
 
     @Autowired
     EntityManager em;
-
-    public Passenger findById(int id){
-        return em.find(Passenger.class, id);
+    
+    public Coach findById(int id){
+        return em.find(Coach.class, id);
     }
-    public void savePassenger(Passenger passenger){
-          em.persist(passenger);
+    public void saveCoach(Coach coach){
+          em.persist(coach);
     }
-    public void deletePassengerById(int id){
+    public void deleteCoachById(int id){
           em.remove(findById(id));
     }
 }

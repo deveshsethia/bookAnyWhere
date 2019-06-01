@@ -1,4 +1,6 @@
-package com.bookAnyWhere.models;
+package com.bookAnyWhere.requestModels;
+
+import com.bookAnyWhere.models.Passenger;
 
 public class TicketRequest {
 

@@ -1,56 +1,41 @@
 package com.bookAnyWhere.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.Date;
+
+@Entity
 public class Ticket {
 
-
-    private String uniqueTicketID;
-    private String trainName;
-    private Passenger passenger;
-    private String coachName;
+    @Id
+    @GeneratedValue
+    private String id;
+    @ManyToOne
+    private int trainId;
+    private Date date;
     private String timing;
 
-
-    public Ticket(String uniqueTicketID, String trainName, Passenger passenger, String coachName, String timing) {
-        this.uniqueTicketID = uniqueTicketID;
-        this.trainName = trainName;
-        this.passenger = passenger;
-        this.coachName = coachName;
-        this.timing = timing;
+    public String getId() {
+        return id;
     }
 
-    public Ticket() {
+    public int getTrainId() {
+        return trainId;
     }
 
-    public String getUniqueTicketID() {
-        return uniqueTicketID;
+    public void setTrainId(int trainId) {
+        this.trainId = trainId;
     }
 
-    public void setUniqueTicketID(String uniqueTicketID) {
-        this.uniqueTicketID = uniqueTicketID;
+    public Date getDate() {
+        return date;
     }
 
-    public String getTrainName() {
-        return trainName;
-    }
-
-    public void setTrainName(String trainName) {
-        this.trainName = trainName;
-    }
-
-    public Passenger getPassenger() {
-        return passenger;
-    }
-
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
-    }
-
-    public String getCoachName() {
-        return coachName;
-    }
-
-    public void setCoachName(String coachName) {
-        this.coachName = coachName;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getTiming() {

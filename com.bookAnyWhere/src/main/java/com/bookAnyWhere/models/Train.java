@@ -1,60 +1,43 @@
 package com.bookAnyWhere.models;
 
 
-import java.util.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Getter
+@Setter
 public class Train {
 
-    private static final int NUMBEROFCOACHES = 10;
-    private Map<String, Coach[]> trainCoaches = new HashMap<String, Coach[]>();
-    public static final String AC="AC";
-    public static final String GE="GE";
-    public static final String SL="SL";
+    @Id
+    @GeneratedValue
+    private int id;
+    private String trainName;
+    private String totalCoaaches;
 
-
-    public Train() {
-        trainCoaches.put(AC, new AcCoach[NUMBEROFCOACHES]);
-        getCoach(trainCoaches.get(AC), AC);
-        trainCoaches.put(GE, new GeneralCoach[NUMBEROFCOACHES]);
-        getCoach(trainCoaches.get(GE),GE);
-        trainCoaches.put(SL, new SleeperCoach[NUMBEROFCOACHES]);
-        getCoach(trainCoaches.get(SL), SL);
-
+    public int getId() {
+        return id;
     }
 
-    private void getCoach(Coach coaches[], String type) {
-        int currentCoach = 0;
-        while (currentCoach < NUMBEROFCOACHES) {
-            switch(type){
-                case AC :
-                    coaches[currentCoach] = new AcCoach(type + currentCoach, type);
-                    break;
-                case GE :
-                    coaches[currentCoach] = new GeneralCoach(type + currentCoach, type);
-                    break;
-                case SL :
-                    coaches[currentCoach] = new SleeperCoach(type + currentCoach, type);
-                    break;
-                default:
-                    new Exception("Entry is not valid");
-            }
-
-            currentCoach++;
-        }
+    public String getTrainName() {
+        return trainName;
     }
 
-    public Map<String, Coach[]> getTrainCoaches() {
-        return trainCoaches;
+    public void setTrainName(String trainName) {
+        this.trainName = trainName;
     }
 
-    public int getAvailabilityIn(String type){
-        int totalCoachSeats=0;
-        for(Coach coachls: trainCoaches.get(type)){
-            totalCoachSeats+=coachls.getAvalaibleSeats();
-        }
-        return totalCoachSeats;
+    public String getTotalCoaaches() {
+        return totalCoaaches;
     }
 
+    public void setTotalCoaaches(String totalCoaaches) {
+        this.totalCoaaches = totalCoaaches;
+    }
 }
 
 

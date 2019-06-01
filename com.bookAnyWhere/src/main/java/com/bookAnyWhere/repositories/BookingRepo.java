@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 
 @Repository
 @Transactional
-public class PassengerRepo {
+public class BookingRepo {
 
 
     @Autowired

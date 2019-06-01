@@ -6,43 +6,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+
+
 @Entity
 @Transactional
 public class Passenger {
 
     @Id
     @GeneratedValue
-    private int passengerID;
-
+    private int id;
     private String name;
     private String age;
     private String gender;
-    private String typeOfPassenger="normal";
+    private PassengerType passengerType;
 
     public Passenger() {
     }
 
-    public int getPassengerID() {
-        return passengerID;
+    public int getId() {
+        return id;
     }
 
-    public String getTypeOfPassenger() {
-        return typeOfPassenger;
-    }
-
-    public Passenger(String name , String age , String gender ){
-        this.name= name;
-        this.age= age;
-        this.gender= gender;
-    }
-
-    //public abstract int passengerDiscount();
-
-
-
-    private void getPassengerType() {
-
-    }
     public String getName() {
         return name;
     }
@@ -65,5 +50,13 @@ public class Passenger {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public PassengerType getPassengerType() {
+        return passengerType;
+    }
+
+    public void setPassengerType(PassengerType passengerType) {
+        this.passengerType = passengerType;
     }
 }
