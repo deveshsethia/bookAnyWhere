@@ -9,28 +9,29 @@ public class ReservedSeat {
     @GeneratedValue
     private int id;
     @ManyToOne
-    private int bookingId;
+    private Booking booking;
     @ManyToOne
-    private int seatId;
+    private Seat seat;
 
 
     public int getId() {
         return id;
     }
 
-    public int getBookingId() {
-        return bookingId;
+    public Booking getBooking() {
+        return booking;
     }
 
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
-    public int getSeatId() {
-        return seatId;
+    public Seat getSeat() {
+        return seat;
     }
 
-    public void setSeatId(int seatId) {
-        this.seatId = seatId;
+    public void setSeat(Seat seat) {
+        this.seat = seat;
     }
+
 }

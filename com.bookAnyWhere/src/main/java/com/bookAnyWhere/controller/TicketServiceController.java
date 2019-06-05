@@ -1,5 +1,6 @@
 package com.bookAnyWhere.controller;
 
+import com.bookAnyWhere.requestModels.TicketRequest;
 import com.bookAnyWhere.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

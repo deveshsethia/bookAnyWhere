@@ -4,10 +4,8 @@ package com.bookAnyWhere.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,7 +18,9 @@ public class Coach {
    private int totalSeats;
    private CoachType coachType;
    @ManyToOne
-   private int trainId ;
+   private Train train ;
+   @OneToMany(mappedBy = "coach")
+   private Set<Seat> seats;
 
    public int getId() {
       return id;
@@ -42,13 +42,23 @@ public class Coach {
       this.coachType = coachType;
    }
 
-   public int getTrainId() {
-      return trainId;
+   public Train getTrain() {
+      return train;
    }
 
-   public void setTrainId(int trainId) {
-      this.trainId = trainId;
+   public void setTrain(Train train) {
+      this.train = train;
    }
 
+   public Set<Seat> getSeat() {
+      return seats;
+   }
 
+   public void setSeat(Seat seat) {
+      seats.add(seat);
+   }
+
+   public void remove(Seat seat){
+      seats.remove(seat);
+   }
 }

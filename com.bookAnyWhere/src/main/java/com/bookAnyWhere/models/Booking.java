@@ -3,10 +3,7 @@ package com.bookAnyWhere.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -17,9 +14,10 @@ public class Booking {
     @GeneratedValue
     private int id;
     @ManyToOne
-    private int passengerId;
+    private Passenger passenger;
     @ManyToOne
-    private int ticketId;
+    private Train train;
+
     public Booking() {
         super();
     }
@@ -28,19 +26,20 @@ public class Booking {
         return id;
     }
 
-    public int getPassengerId() {
-        return passengerId;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void setPassengerId(int passengerId) {
-        this.passengerId = passengerId;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
-    public int getTicketId() {
-        return ticketId;
+    public Train getTrain() {
+        return train;
     }
 
-    public void setTicketId(int ticketId) {
-        this.ticketId = ticketId;
+    public void setTrain(Train train) {
+        this.train = train;
     }
+
 }

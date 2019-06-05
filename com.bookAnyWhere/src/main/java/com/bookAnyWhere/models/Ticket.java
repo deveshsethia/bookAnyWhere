@@ -14,7 +14,7 @@ public class Ticket {
     @GeneratedValue
     private String id;
     @ManyToOne
-    private int trainId;
+    private Train train;
     private Date date;
     private String timing;
 
@@ -22,12 +22,12 @@ public class Ticket {
         return id;
     }
 
-    public int getTrainId() {
-        return trainId;
+    public Train getTrain() {
+        return train;
     }
 
-    public void setTrainId(int trainId) {
-        this.trainId = trainId;
+    public void setTrain(Train train) {
+        this.train = train;
     }
 
     public Date getDate() {
