@@ -12,9 +12,16 @@ import javax.persistence.PersistenceContext;
 @Transactional
 public class BookingRepo {
 
-
-    @PersistenceContext
+    @Autowired
     EntityManager em;
+
+
+    public BookingRepo() {
+    }
+    public BookingRepo(EntityManager em) {
+        this.em=em;
+    }
+
 
     public Passenger findById(int id){
         return em.find(Passenger.class, id);

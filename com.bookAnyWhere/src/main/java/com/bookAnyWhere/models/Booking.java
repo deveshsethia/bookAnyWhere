@@ -8,10 +8,11 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@TableGenerator(name = "booking",initialValue = 20000)
 public class Booking {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE,generator = "booking")
     private int id;
     @ManyToOne
     private Passenger passenger;

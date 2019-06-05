@@ -1,7 +1,6 @@
 package com.bookAnyWhere.repositories;
 
 import com.bookAnyWhere.models.Passenger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +10,7 @@ import javax.persistence.Query;
 
 @Repository
 @Transactional
-public class PassengerRepo {
+public class TrainRepo {
 
 
     @PersistenceContext

@@ -1,17 +1,15 @@
 package com.bookAnyWhere.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@TableGenerator(name = "ticket",initialValue = 40000)
 public class Ticket {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ticket")
     private String id;
     @ManyToOne
     private Train train;

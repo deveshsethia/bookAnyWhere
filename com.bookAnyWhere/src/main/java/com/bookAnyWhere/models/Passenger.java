@@ -18,11 +18,18 @@ public class Passenger {
     private int id;
     private String name;
     private String age;
-    private String gender;
+    private Gender gender;
     private PassengerType passengerType;
-
     @OneToMany(mappedBy = "passenger")
     private Set<Booking> bookings;
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     public Set<Booking> getBooking() {
         return bookings;
@@ -55,14 +62,6 @@ public class Passenger {
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public PassengerType getPassengerType() {

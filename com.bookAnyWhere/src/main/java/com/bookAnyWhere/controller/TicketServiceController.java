@@ -1,5 +1,6 @@
 package com.bookAnyWhere.controller;
 
+import com.bookAnyWhere.models.Passenger;
 import com.bookAnyWhere.requestModels.TicketRequest;
 import com.bookAnyWhere.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ public class TicketServiceController{
     public void getAvailability(@PathVariable String type){
 
 
+    }
+    @PostMapping("/addPassenger")
+    public void addPassenger(@RequestBody Passenger passenger){
+        
     }
 
     @PostMapping("/booking")

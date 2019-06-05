@@ -4,26 +4,35 @@ package com.bookAnyWhere.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@TableGenerator(name = "train",initialValue = 30000)
 public class Train {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "train")
     private int id;
+    @OneToOne
+    private AvalibilityDisplay avalibilityDisplay;
     private String trainName;
     private String totalCoaaches;
     @OneToMany(mappedBy = "train")
     private Set<Booking> trainBookings;
     @OneToMany(mappedBy = "train")
     private Set<Coach> coaches;
+
+    public AvalibilityDisplay getAvalibilityDisplay() {
+        return avalibilityDisplay;
+    }
+
+    public void setAvalibilityDisplay(AvalibilityDisplay avalibilityDisplay) {
+        this.avalibilityDisplay = avalibilityDisplay;
+    }
+
     @OneToMany(mappedBy = "train")
     private Set<Ticket> tickets;
 
